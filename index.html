@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mustache Demo</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mustache demo</h1>
+      <hr/>
+      <div id="content" class="row">
+        loading...
+      </div>
+    </div>
+
+    <div id="theModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div id="modalContent" class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/mustache/mustache.js"></script>
+    <script src="main.js"></script>
+    <script id="shotList" type="text/template">
+      {{#shots}}
+      <div class="col-md-4 text-center">
+        <a data-shotid="{{id}}" class="thumbnail">
+          <img src="{{image_teaser_url}}">
+        </a>
+        <p><a href="{{url}}">{{title}}</a></p>
+      </div>
+      {{/shots}}
+    </script>
+    <script id="modal" type="text/template">
+      <h2>{{title}}</h2>
+      <img class="img-thumbnail" src="{{image_url}}">
+    </script>
+  </body>
+</html>
